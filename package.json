@@ -7,9 +7,11 @@
   "scripts": {
     "start": "node build/index.js",
     "build": "tsc",
-    "dev": "tsc-watch --onSuccess 'node ./build/index.js'"
+    "dev": "tsc-watch --onSuccess \"node ./build/index.js\""
   },
   "dependencies": {
+    "@types/helmet": "^4.0.0",
+    "@types/winston": "^2.4.4",
     "axios": "^1.4.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
