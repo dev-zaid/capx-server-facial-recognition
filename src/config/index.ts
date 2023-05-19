@@ -8,6 +8,12 @@ export default {
    */
   port: parseInt(process.env.PORT!) || 5050,
 
+  seventhSense: {
+    apiKey: process.env.API_KEY,
+    baseURL: process.env.API_BASE_URL,
+    userCollectionID: "68110664-ab19-4227-9d35-961197efc88d",
+  },
+
   /**
    * Used by Winston logger
    */
