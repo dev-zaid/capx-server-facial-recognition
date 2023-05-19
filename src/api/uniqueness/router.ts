@@ -1,25 +1,21 @@
 import { Request, Response, Router } from "express";
-import AI from "../../config/AI";
+import LoggerInstance from "../../loaders/logger";
+import UniquenessCheck from "./controller";
 
 const uniquenessRouter = Router();
 
-const headers = {
-  "X-API-Key": process.env.API_KEY,
-};
-
-const handleUniqueness = async(req: Request, res: Response) => {
-  const { image } = req.body;
-  const body = {
-    collection_id: "68110664-ab19-4227-9d35-961197efc88d",
-    images: [image],
-    min_score: 0.7,
-    search_mode: "FAST",
-  };
-  const response = await AI.post("/search", body, { headers });
-  if (!response) {
-    return res.status(200).send("Image is unique!");
+const handleUniqueness = async (req: Request, res: Response) => {
+  try {
+    const { image } = req.body;
+    await UniquenessCheck(image);
+    res.status(200).json({ success: true, message: "User is unique" });
+  } catch (e) {
+    LoggerInstance.error(e);
+    res.status(e.status || 500).json({
+      message: e.message || "Request Failed",
+    });
   }
 };
 
-uniquenessRouter.post("/uniqueness", handleUniqueness);
+uniquenessRouter.post("/", handleUniqueness);
 export default uniquenessRouter;

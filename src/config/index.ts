@@ -11,7 +11,7 @@ export default {
   seventhSense: {
     apiKey: process.env.API_KEY,
     baseURL: process.env.API_BASE_URL,
-    userCollectionID: "68110664-ab19-4227-9d35-961197efc88d",
+    userCollectionID: "ac98fe31-98b7-4ff4-81c6-56a7ee7a6230",
   },
 
   /**
