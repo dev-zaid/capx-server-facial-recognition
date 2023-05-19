@@ -12,7 +12,8 @@
     "outDir": "./build",
     "allowJs": true,
     "noEmit": false,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "rootDir": "./src"
   },
   "include": ["./src/**/*"],
   "exclude": ["node_modules", "tests"]

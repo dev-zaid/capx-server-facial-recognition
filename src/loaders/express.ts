@@ -32,7 +32,7 @@ export default ({ app }: { app: express.Application }): void => {
   app.use(cors());
 
   // Middleware that transforms the raw string of req.body into json
-  app.use(bodyParser.json());
+  app.use(bodyParser.json({ limit: "10mb" }));
 
   // Load API routes
   app.use(config.api.prefix, routes());
