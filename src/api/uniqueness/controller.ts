@@ -8,10 +8,9 @@ const UniquenessCheck = async (img: any) => {
     min_score: 0.7,
     search_mode: "ACCURATE",
   };
-  console.log("body", body);
   const response = await AiApi.post("/search", body);
-  console.log("response", response);
-  if (response.status == 200) {
+  console.log(response.data);
+  if (response.data.length !== 0) {
     throw new ErrorClass("User already exists", 400);
   }
   return response;
