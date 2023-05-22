@@ -10,6 +10,7 @@ const handleLiveliness = async (req: Request, res: Response) => {
     await LivelinessCheck(image);
     res.status(200).json({ success: true, message: "User is unique" });
   } catch (e) {
+    console.log(e);
     LoggerInstance.error(e);
     res.status(e.status || 500).json({
       message: e.message || "Request Failed",
