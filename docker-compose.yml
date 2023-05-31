@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+  capx-facial-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: base
+    volumes:
+      - ./src:/home/node/app/src
+      - ./nodemon.json:/home/node/app/nodemon.json
+    container_name: capx-facial-backend
+    expose:
+      - "5050"
+    ports:
+      - "5050:5050"
+    command: yarn dev
