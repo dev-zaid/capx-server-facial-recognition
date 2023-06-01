@@ -2,6 +2,8 @@ import { response } from "express";
 import config from "../../config";
 import AiApi from "../../helper/axios";
 import ErrorClass from "../../helper/types/error";
+import * as nanoid from "nanoid";
+
 const UniquenessCheck = async (img: any) => {
   const body = {
     collection_id: config.seventhSense.userCollectionID,
@@ -19,7 +21,7 @@ const UniquenessCheck = async (img: any) => {
 
 const addUser = async (img: any) => {
   const userBody = {
-    id: "string",
+    id: nanoid.nanoid(),
     name: "string",
     images: [img],
     gender: "M",
