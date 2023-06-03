@@ -7,8 +7,8 @@ WORKDIR /app
 
 COPY . .
 
-RUN yarn install
+RUN yarn
 
 EXPOSE 5050
 
-CMD ["yarn", "build"]
+RUN yarn build
