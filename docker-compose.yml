@@ -10,8 +10,6 @@ services:
       - ./src:/home/node/app/src
       - ./nodemon.json:/home/node/app/nodemon.json
     container_name: capx-facial-backend
-    expose:
-      - "5050"
     ports:
       - "5050:5050"
-    command: yarn dev
+    command: yarn start
